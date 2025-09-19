@@ -9,7 +9,7 @@ public class PracticeRun {
 
 		PracticeService ps = new PracticeService();
 		
-		ps.practice3();
+		ps.practice4();
 		
 	}
 

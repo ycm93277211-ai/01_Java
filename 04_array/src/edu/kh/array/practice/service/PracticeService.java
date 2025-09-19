@@ -51,20 +51,66 @@ public class PracticeService {
 		}
 		System.out.printf("홀수 번째 인덱스 합 : %d", sum);
 	}
+
 	public void practice3() {
-		
+
 //		사용자에게 입력 받은 양의 정수만큼 배열 크기를 할당하고
 //		1부터 입력 받은 값까지 배열에 초기화한 후 출력하세요.
 //
 //		[실행 화면]
 //		양의 정수 : 5
 //		1 2 3 4 5
-		
-		
+
 		System.out.println("[실행 화면]");
-		System.out.println("양의 정수 : ");
+		System.out.print("양의 정수 : ");
+		int num = sc.nextInt();
+
+		int arr[] = new int[num];
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print((i + 1) + " ");
+		}
+	}
+
+	public void practice4() {
+//		정수 5개를 입력 받아 배열을 초기화 하고
+//		검색할 정수를 하나 입력 받아 배열에서 같은 수가 있는 인덱스를 찾아 출력.
+//		배열에 같은 수가 없을 경우 “일치하는 값이 존재하지 않습니다“ 출력
+//
+//		[실행 화면 1]            
+//		입력 0 : 5                    
+//		입력 1 : 8                 
+//		입력 2 : 9
+//		입력 3 : 10
+//		입력 4 : 4
+//		검색할 값 : 8
+//		인덱스 : 1
+//
+//		[실행 화면 2]
+//		입력 0 : 5
+//		입력 1 : 8
+//		입력 2 : 9
+//		입력 3 : 10
+//		입력 4 : 4
+//		검색할 값 : 1
+//		일치하는 값이 존재하지 않습니다.
+
+		int result = 0;
+		int arr[] = new int[5];
+
+		System.out.println("[실행 화면]");
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.print("입력 " + i + " : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.print("검색할 값 : ");
+		int num = sc.nextInt();
 		
-				
 		
+		System.out.print("인덱스 : " + result);
+
 	}
 }

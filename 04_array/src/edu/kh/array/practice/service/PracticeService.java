@@ -42,14 +42,16 @@ public class PracticeService {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = i + 1;
 		}
-			for (int i = arr.length - 1; i >= 0; i--) {
-				System.out.print(arr[i]);
+		for (int i = arr.length - 1; i >= 0; i--) {
+			System.out.print(arr[i]);
 
-				if (i % 2 == 1) {
-					sum += arr[i];
-				}
+			if (i % 2 == 1) {
+				sum += arr[i];
 			}
-			System.out.printf("홀수 번째 인덱스 합 : %d", sum);
 		}
+		System.out.printf("홀수 번째 인덱스 합 : %d", sum);
 	}
-
+	public void practice3() {
+		
+	}
+}

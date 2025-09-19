@@ -121,11 +121,13 @@ public class Array2Example {
 		char ch ='a';
 		
 		for(int row = 0;row< arr.length; row++) { //0,1,2,3
-			for(int col =0; col< arr[row].length;col++) {
+			for(int col =0; col< arr[row].length;col++) {//가변 배열은 고정 시키면 안됨
 				
 				arr[row][col] = ch++;
 			}
 		}System.out.println(Arrays.deepToString(arr));
 		
 	}
+	
+	
 }

@@ -7,6 +7,7 @@ public class Array2Run {
 
 		Array2Example ae = new Array2Example();
 		ae.ex3();
+		//공부를 열심히 함
 		}
 
 }

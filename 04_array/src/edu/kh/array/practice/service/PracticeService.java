@@ -53,5 +53,18 @@ public class PracticeService {
 	}
 	public void practice3() {
 		
+//		사용자에게 입력 받은 양의 정수만큼 배열 크기를 할당하고
+//		1부터 입력 받은 값까지 배열에 초기화한 후 출력하세요.
+//
+//		[실행 화면]
+//		양의 정수 : 5
+//		1 2 3 4 5
+		
+		
+		System.out.println("[실행 화면]");
+		System.out.println("양의 정수 : ");
+		
+				
+		
 	}
 }

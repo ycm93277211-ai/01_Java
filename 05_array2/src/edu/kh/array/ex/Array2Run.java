@@ -9,6 +9,7 @@ public class Array2Run {
 		ae.ex3();
 		//공부를 열심히 함
 		//업로드 열심히 하기
+		//집에서 업로드함
 		}
 
 }

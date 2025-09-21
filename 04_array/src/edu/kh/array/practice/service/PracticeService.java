@@ -1,5 +1,6 @@
 package edu.kh.array.practice.service;
 
+import java.security.DrbgParameters.NextBytes;
 import java.util.Scanner;
 
 public class PracticeService {
@@ -96,21 +97,28 @@ public class PracticeService {
 //		검색할 값 : 1
 //		일치하는 값이 존재하지 않습니다.
 
-		int result = 0;
-		int arr[] = new int[5];
+		int[] arr = new int[5];
 
-		System.out.println("[실행 화면]");
-
-		for (int i = 0; i < arr.length; i++) {
-
-			System.out.print("입력 " + i + " : ");
+		for (int i = 0; i < arr.length; i++) {// arr[] 배열값 저장
+			System.out.printf("입력 %d: ", i);
 			arr[i] = sc.nextInt();
 		}
-		System.out.print("검색할 값 : ");
-		int num = sc.nextInt();
-		
-		
-		System.out.print("인덱스 : " + result);
 
+		System.out.print("검색할 값: ");
+		int num = sc.nextInt();
+
+		int foundIdx = -1; //참 거짓 판별
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (num == arr[i]) {
+				foundIdx = i;
+			}
+
+		}
+		if (foundIdx != -1) {
+			System.out.printf("인덱스 : %d",foundIdx );
+		} else {
+			System.out.print("일치하는 값이 존재하지 않습니다.");
+		}
 	}
 }

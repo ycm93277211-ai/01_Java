@@ -1,6 +1,6 @@
 package edu.kh.array.practice.service;
 
-import java.security.DrbgParameters.NextBytes;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PracticeService {
@@ -107,8 +107,8 @@ public class PracticeService {
 		System.out.print("검색할 값: ");
 		int num = sc.nextInt();
 
-		int foundIdx = -1; //참 거짓 판별
-		
+		int foundIdx = -1; // 참 거짓 판별
+
 		for (int i = 0; i < arr.length; i++) {
 			if (num == arr[i]) {
 				foundIdx = i;
@@ -116,9 +116,175 @@ public class PracticeService {
 
 		}
 		if (foundIdx != -1) {
-			System.out.printf("인덱스 : %d",foundIdx );
+			System.out.printf("인덱스 : %d", foundIdx);
 		} else {
 			System.out.print("일치하는 값이 존재하지 않습니다.");
 		}
+	}
+
+	public void practice5() {
+
+	}
+
+	public void practice6() {
+
+	}
+
+	public void practice7() {
+
+		System.out.print("주민등록번호 : ");
+		String input = sc.next();
+
+		char[] arr = new char[input.length()];
+		for (int i = 0; i < arr.length; i++) {
+
+			if (i <= 7) {// 7번 인덱스 이하 성별까지
+				arr[i] = input.charAt(i);// 이거 뭥미
+			} else {// 8번 인덱스 이상
+				arr[i] = '*';
+			}
+
+			System.out.print(arr[i]);
+		}
+
+	}
+
+	public void practice8() {
+
+		while (true) {// 3이상의 수가 입력될 떄까지 무한반복
+						// 3이상 홀수가 입력되면 원하는 코드 수행 후 break 문으로 종료 예정
+
+			System.out.print("정수 : ");
+			int input = sc.nextInt();
+
+			if (input < 3 || input % 2 == 0) {
+				System.out.print("다시 입력하세요!");
+			} else {
+				// 입력받은 정수 만큼의 크기를 갖는 배열 생성
+				int[] arr = new int[input];
+
+				int num = 1; // arr 배열에 대입될 값
+				for (int i = 0; i < arr.length; i++) {
+					// 요소에 값 대입하기
+					if (i <= arr.length / 2) { // 중간까지-> 증가
+						arr[i] = num++;
+					} else {// 중간 이후 -> 감소
+						arr[i] = --num;
+					}
+					if (i == arr.length - 1) {
+						System.out.print(arr[i]);
+					} else {
+						System.out.print(arr[i] + ",");
+					}
+
+				}
+				break; // while문 멈춤
+			}
+		}
+
+	}
+
+	public void practice9() {
+
+	}
+
+	public void practice10() {
+
+		int[] arr = new int[10];
+
+		System.out.print("발생한 난수 : ");
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = (int) (Math.random() * 10 + 1);
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+
+		int max = 1;// 최대값을 담아줄 변수
+		int min = 10;// 최솟값을 담아줄 변수
+
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] > max) {// 해당 인덱스 값이 max 값보다 큰 경우
+				max = arr[i];
+			}
+			if (arr[i] < min) {// 해당 인덱스 값이 min 값보다 작은 경우
+				min = arr[i];
+			}
+		}
+		System.err.println("최대값 : " + max);
+		System.err.print("최소값 : " + min);
+	}
+
+	public void practice11() {
+
+	}
+
+	public void practice12() {
+
+	}
+
+	public void practice13() {
+
+	}
+
+	public void practice14() {
+
+		// 1. 첫 배열 크기 지정
+		System.out.print("배열의 크기를 입력하세요 :");
+		int size = sc.nextInt();
+
+		sc.nextLine();// 입력 버퍼에 남은 개행문자 제거
+
+		String[] arr = new String[size];
+		// 2. 첫 배열에 저장할 문자열 입력받기
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print((i + 1) + "번째 문자열 : ");
+			arr[i] = sc.nextLine();
+		}
+
+		// 3.반복이 시작되는 구간부터 while 작성
+		// 내부에 종료조건 만들어 break 이용하여 멈춤
+		while (true) {
+			System.out.print("값을 더 입력하시겠습니다(Y/N)");
+			char ch = sc.next().charAt(0);
+			sc.nextLine();
+
+			// 4. 값을 더 입력할 경우
+			if (ch == 'Y' || ch == 'y') {
+
+				// 5.더 입력 받을 개수 입력받기
+				System.out.print("더 입력 받을 개수: ");
+				int addSize = sc.nextInt();
+				sc.nextLine(); // 입력 버퍼에 남은 개행문자 제거
+
+				// 6. 새로 값을 입력받을 배열 생성
+				// -->기존 배열 크기 + 추가 입력 갯수
+
+				String[] newArr = new String[arr.length + addSize];
+
+				// 7. 배열 복사 + 새로운 문자열 입력받기
+				for (int i = 0; i < newArr.length; i++) {
+					if (i < arr.length) {// 인덱스의 값이 기존 배열보다 작을 경우 (깊은 복사)
+						newArr[i] = arr[i];
+					} else {
+						System.out.print((i + 1) + "번째 문자열 : ");
+						newArr[i] = sc.nextLine();
+					}
+				}
+				// 8. 기존 배열 공간을 참조하던 변수 arr 에
+				// 새로운 배열 공간의 주소를 가진 newArr 대입 (얕은 복사)
+				arr = newArr;
+
+			} else if (ch == 'N' || ch == 'n') {// 값을 더 입력하지 않을 경우
+				break;
+			} else {// 잘못 입력한 경우
+				System.out.print("다시 입력하세요");
+			}
+
+		}
+		// 9. 배열값 모두 출력
+		System.out.println(Arrays.toString(arr));
+
 	}
 }

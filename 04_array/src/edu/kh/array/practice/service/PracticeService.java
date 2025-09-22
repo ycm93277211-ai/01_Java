@@ -133,16 +133,27 @@ public class PracticeService {
 //		application 에 i 가 존재하는 위치(인덱스) : 4 8
 //		i 개수 : 2
 
-		System.out.print("문자열 : ");
+		System.out.print("문자열: ");
 		String str = sc.next();
 
-		System.out.print("문자 : ");
+		System.out.print("문자: ");
 		char ch = sc.next().charAt(0);
-		System.out.println(ch);
 
-		int count = 0;// 문자 몇개인지 셀 갯수
+		int count = 0;
+		char[] arr = str.toCharArray();// ex)"hello"-> [h,e,l,l,o,w]
 
+		System.out.print(str + "에" + ch + "가 존재하는 위치(인덱스) : ");
 		
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == (ch)) {// arr[i] == ch char끼리 비교할때 == 사용함
+				System.out.print(i + " ");
+				count += 1;// 개수값 모으기
+
+			}
+		}
+		System.out.println();
+		System.out.print(ch + "의 개수: " + count);
+
 	}
 
 	public void practice6() {

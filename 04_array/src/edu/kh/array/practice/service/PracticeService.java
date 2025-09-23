@@ -143,7 +143,7 @@ public class PracticeService {
 		char[] arr = str.toCharArray();// ex)"hello"-> [h,e,l,l,o,w]
 
 		System.out.print(str + "에" + ch + "가 존재하는 위치(인덱스) : ");
-		
+
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == (ch)) {// arr[i] == ch char끼리 비교할때 == 사용함
 				System.out.print(i + " ");
@@ -157,6 +157,24 @@ public class PracticeService {
 	}
 
 	public void practice6() {
+
+		System.out.print("정수 값 : ");
+		int num = sc.nextInt();
+
+		while (true) {
+
+			if (num >= 2 && num <= 9) {
+				for (int i = 1; i <= 9; i++) {
+					System.out.printf("%d x %d = %d \n", num, i, num * i);
+					// 뒤에 곱 하는 값
+				
+				}
+			} else {
+				System.out.println("2~9 사이의 정수 값을 입력해 주세요 ");
+			}
+			
+			break; //중복문 탈출
+		}
 
 	}
 

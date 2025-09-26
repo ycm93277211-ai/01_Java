@@ -9,7 +9,7 @@ public class InheritanceRun {
 
 		
 		InheritanceServic is = new InheritanceServic();
-		is.ex1() ;
+		is.ex3() ;
 			
 		
 	}

@@ -53,6 +53,7 @@ public class Person /* extends Object <- 여기에 있는데 안보임*/{
 	public void breath() {
 		System.out.println("사람은 코나 입으로 숨을 쉰다.");
 	}
+
 	public void move() {
 		System.out.println("사람은 움직일 수 있다");
 	}
@@ -60,7 +61,7 @@ public class Person /* extends Object <- 여기에 있는데 안보임*/{
 	 @Override
 	public String toString() {
 		 
-		return name + age+ nationality;
+		return name + age+ nationality ;
 	}
 	
 	

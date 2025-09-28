@@ -1,5 +1,7 @@
 package com.hw1.model.vo;
 
+import java.io.PrintStream;
+
 public class Person {
 
 	/*
@@ -13,31 +15,20 @@ public class Person {
 	private double weight;
 
 	public Person() {
-		
-		System.out.println(name +"홍길동");
-		System.out.println(name +"김말똥");
-		System.out.println(name +"강개순");
-		
+
 	}
 
-	public Person( int age, double height, double weight) {
+	public Person(int age, double height, double weight) {
 		super();
-		
+
 		this.age = age;
 		this.height = height;
 		this.weight = weight;
 	}
 
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-
-	public String information() {
-		return "";
+	public  String information() {// 출력
+		 return String.format("이름: %s 나이: %d 신장: %.1f 체중: %.1f",
+                 name, age, height, weight);
 	}
 
 	public int getAge() {

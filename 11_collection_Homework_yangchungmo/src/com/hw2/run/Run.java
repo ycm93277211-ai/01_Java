@@ -11,11 +11,11 @@ public class Run {
 		Zoo zo= new Zoo();
 		
 		
+		Tiger ti = new Tiger("호랑이");//객체 생성
+		zo.addAnimal(ti);
 		
 		Monkey mo = new Monkey("원숭이");//객체 생성
 		zo.addAnimal(mo);
-		Tiger ti = new Tiger("호랑이");//객체 생성
-		zo.addAnimal(ti);
 
 		zo.displayMenu();
 	}

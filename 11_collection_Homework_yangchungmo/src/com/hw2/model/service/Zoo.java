@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.hw2.model.dto.Animal;
-import com.hw2.model.dto.Monkey;
-import com.hw2.model.dto.Tiger;
 
 public class Zoo {
 

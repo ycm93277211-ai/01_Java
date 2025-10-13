@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class ToyFactory {
 
-	public class ToyFactory {
+
 
 		Scanner sc = new Scanner(System.in);
 
@@ -314,4 +314,4 @@ public class ToyFactory {
 		}
 
 	}
-}
+

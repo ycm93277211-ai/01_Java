@@ -3,7 +3,7 @@ package toyfactoryminiproject;
 import java.util.Objects;
 import java.util.Set;
 
-public class ToyClass {
+public  class ToyClass implements Comparable<ToyClass>{
 
 	private String toyName;
 	private int ageOfUse;
@@ -11,6 +11,8 @@ public class ToyClass {
 	private String color;
 	private int make;
 	private Set<String> materials;
+	
+	
 	
 	
 	public ToyClass() {
@@ -33,7 +35,7 @@ public class ToyClass {
 
 	@Override
 	public String toString() {
-		return "장난감 이름: " + toyName + "/ 사용연령: " + ageOfUse + "/ 가격: " + price + "/ 색깔: " + color
+		return "이름: " + toyName + "/ 사용연령: " + ageOfUse + "/ 가격: " + price + "/ 색상: " + color
 				+ "/ 제조년월일: " + make + "/ 사용재료: " + materials ;
 	}
 
@@ -119,15 +121,20 @@ public class ToyClass {
 	}
 
 
+	@Override
+	public int compareTo(ToyClass o) {
+		return Integer.compare(this.make, o.make); 
+		
+	}
+	
+
+
+
+	
+
+
 
 
 
 		
-
-
-	
-	
-	
-	
-
 }

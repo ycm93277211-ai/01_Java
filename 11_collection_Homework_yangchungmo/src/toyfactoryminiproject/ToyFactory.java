@@ -1,7 +1,10 @@
 package toyfactoryminiproject;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -10,7 +13,6 @@ public class ToyFactory {
 
 	private Map<Integer, String> ma = new HashMap<>();
 	private Set<ToyClass> toy = new HashSet<>();
-	private Set<ToyClass> toys = new HashSet<>();
 
 	Scanner sc = new Scanner(System.in);
 
@@ -21,18 +23,33 @@ public class ToyFactory {
 		ma.put(4, "고무");
 
 		toy.add(new ToyClass("마미롱레그", 8, 36000, "분홍색", 19950805, addMaterials(1, 4)));
-		toy.add(new ToyClass("키시미시", 5, 15000, "분홍색", 1994050, addMaterials(1, 2)));
+		// addMaterials == Set 객체를 반환할 메서드 호출 즉 메서드 만들기
+		toy.add(new ToyClass("키시미시", 5, 15000, "분홍색", 19940505, addMaterials(1, 2)));
 		toy.add(new ToyClass("캣냅", 8, 27000, "보라색", 19960128, addMaterials(1, 2)));
 		toy.add(new ToyClass("파피", 12, 57000, "빨간색", 19931225, addMaterials(1, 2, 4)));
+		toy.add(new ToyClass("허기워기", 5, 12000, "파란색", 19940312, addMaterials(1, 2)));
 
 	}
 
+	// 가변인자(인자수가 변할 수 있음): 몇개든 들어갈 수 있음
+	// 사용방법 -> 자료형...변수명
+	// 가변인자를 통해 들어온 매개변수의ㅣ 데이터 타입은 배열이다
+
+	/**
+	 * 매개변수로 전달받은 값들을 재료를 저장한 Map에 있는지 확인하고 Set형태로 반환하는 메서드
+	 * 
+	 * @param materials
+	 * @return
+	 */
+	// addMaterials( , )의 기능
 	public Set<String> addMaterials(Integer... materials) {
 
 		Set<String> str = new HashSet<>();
 
 		for (Integer material : materials) {
-			str.add(ma.get(material));
+			if (material != null) {
+				str.add(ma.get(material));
+			}
 		}
 		return str;
 	}
@@ -66,8 +83,9 @@ public class ToyFactory {
 				toyelimination();
 				break;
 			case 4:
+				toyeUseAge();
 				break;
-			case 5:
+			case 5:useAge();
 				break;
 			case 6:
 				break;
@@ -84,10 +102,10 @@ public class ToyFactory {
 	}
 
 	public void inquiry() {
-
+		int sum = 1;
 		System.out.println("<<장난감 목록>>");
 		for (ToyClass t : toy) {
-			System.out.println(t);
+			System.out.printf("%d.%s\n", sum++, t);
 		}
 
 		System.out.println();
@@ -104,7 +122,7 @@ public class ToyFactory {
 		System.out.print("가격: ");
 		int toyprice = sc.nextInt();
 
-		System.out.print("색깔: ");
+		System.out.print("색상: ");
 		String toycolar = sc.next();
 
 		System.out.print("제조일(YYYYMMDD형식으로 입력): ");
@@ -132,20 +150,53 @@ public class ToyFactory {
 		System.out.print("삭제할 장난감 이름을 적어주세요: ");
 		String toyname = sc.next();
 
+		boolean flag = false;
+		ToyClass result = null;
+
 		for (ToyClass t : toy) {
 			if (t.getToyName().equals(toyname)) {
-				System.out.println("장난감이 삭제 되었습니다.");
-				toys=toy;
-				toy.remove(toys);
-				
-				break;
-			} else {
-				System.out.println("해당 이름의 장난감을 찾을 수 없습니다");
+				flag = true;
+				result = t;
 				break;
 			}
-//		System.out.println();
+		}
+
+		if (flag) {
+			toy.remove(result);
+			System.out.println("장난감이 삭제 되었습니다.");
+		} else {
+			System.out.println("해당 이름의 장난감을 찾을 수 없습니다");
 
 		}
 	}
 
+	public void toyeUseAge() {
+		List<ToyClass> list = new ArrayList<ToyClass>(toy);
+		Collections.sort(list);
+
+		int sum = 1;
+		System.out.println("<제조일 순으로 장난감 정렬>");
+		for (ToyClass t : list) {
+			System.out.printf("%d.%s\n", sum++, t);
+		}
+
+		System.out.println();
+
+	}
+	public void useAge() {
+		System.out.println("<연령별 사용 가능한 장난감>");
+		
+		List<ToyClass> list = new ArrayList<ToyClass>(toy);
+		Collections.sort(list);
+
+		int sum = 1;
+		for (ToyClass t : list) {
+			System.out.printf("%d.%s\n", sum++, t);
+		}
+
+		System.out.println();
+		
+		
+		
+	}
 }

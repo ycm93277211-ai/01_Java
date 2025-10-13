@@ -85,7 +85,8 @@ public class ToyFactory {
 			case 4:
 				toyeUseAge();
 				break;
-			case 5:useAge();
+			case 5:
+				useAge();
 				break;
 			case 6:
 				break;
@@ -172,8 +173,10 @@ public class ToyFactory {
 
 	public void toyeUseAge() {
 		List<ToyClass> list = new ArrayList<ToyClass>(toy);
-		Collections.sort(list);
-
+		list.sort(ToyClass.Make_COMPARATOR);
+		
+//		Collections.sort(list);
+		
 		int sum = 1;
 		System.out.println("<제조일 순으로 장난감 정렬>");
 		for (ToyClass t : list) {
@@ -183,20 +186,28 @@ public class ToyFactory {
 		System.out.println();
 
 	}
+
 	public void useAge() {
 		System.out.println("<연령별 사용 가능한 장난감>");
 		
 		List<ToyClass> list = new ArrayList<ToyClass>(toy);
-		Collections.sort(list);
-
+		list.sort(ToyClass.AGE_COMPARATOR);
+		
+		//사용연령 같은값이 있는지
+		for(ToyClass age : list) {
+			System.out.println("[연령:" + age.getAgeOfUse() + "세]");
+		}
 		int sum = 1;
+		
 		for (ToyClass t : list) {
 			System.out.printf("%d.%s\n", sum++, t);
 		}
+		
+		
+		
+		
 
 		System.out.println();
-		
-		
-		
+
 	}
 }

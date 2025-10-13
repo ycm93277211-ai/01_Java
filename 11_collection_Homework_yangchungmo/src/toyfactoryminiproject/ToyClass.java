@@ -14,6 +14,28 @@ public  class ToyClass implements Comparable<ToyClass>{
 	
 	
 	
+//	@Override
+//	public int compareTo(ToyClass o) {//한개만 정렬 가능
+//		return Integer.compare(this.make, o.make); 
+//		
+//	}
+	
+	/** 숫자 및 글자 정렬 방법
+	 * 
+	 */
+	public static  java.util.Comparator<ToyClass> AGE_COMPARATOR = java.util.Comparator.comparingInt(ToyClass::getAgeOfUse);//다중으로 정렬 시킬수 있음
+	public static  java.util.Comparator<ToyClass> Make_COMPARATOR = java.util.Comparator.comparingInt(ToyClass::getMake);//다중으로 정렬 시킬수 있음
+	
+	
+	
+	
+	@Override
+	public int compareTo(ToyClass o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
 	
 	public ToyClass() {
 		// TODO Auto-generated constructor stub
@@ -121,14 +143,8 @@ public  class ToyClass implements Comparable<ToyClass>{
 	}
 
 
-	@Override
-	public int compareTo(ToyClass o) {
-		return Integer.compare(this.make, o.make); 
-		
-	}
+
 	
-
-
 
 	
 

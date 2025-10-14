@@ -2,12 +2,15 @@ package toyfactoryminiproject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+
+
 
 public class ToyFactory {
 
@@ -191,20 +194,21 @@ public class ToyFactory {
 		System.out.println("<연령별 사용 가능한 장난감>");
 		
 		List<ToyClass> list = new ArrayList<ToyClass>(toy);
-		list.sort(ToyClass.AGE_COMPARATOR);
-		
+//		list.sort(ToyClass.AGE_COMPARATOR);
+		Collections.sort(list, new Comparator<ToyClass>() {
+			@Override
+			public int compare(ToyClass o1, ToyClass o2) {
+				
+				return Integer.compare(o1.getAgeOfUse(), o2.getAgeOfUse());
+			}
+		});
+			
+		int sum = 1;
 		//사용연령 같은값이 있는지
 		for(ToyClass age : list) {
 			System.out.println("[연령:" + age.getAgeOfUse() + "세]");
+			System.out.printf("%d.%s\n", sum++, age);
 		}
-		int sum = 1;
-		
-		for (ToyClass t : list) {
-			System.out.printf("%d.%s\n", sum++, t);
-		}
-		
-		
-		
 		
 
 		System.out.println();

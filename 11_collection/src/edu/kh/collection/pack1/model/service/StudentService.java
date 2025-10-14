@@ -22,7 +22,7 @@ public class StudentService {
 	// 다이아몬드 연산자 == <> : 컴마일러가 좌변을 보고 우변 타입을 추론!!
 	private List<Object> testList = new ArrayList<>();
 
-	// new ArrayList(); : 기본생성자 -> 가본 크가 10칸 리스트 생성(의미 없음,알고 있으면 좋음)
+	// new ArrayList(); : 기본생성자 -> 기본 크가 10칸 리스트 생성(의미 없음,알고 있으면 좋음)
 	// 하지만 리스트의 크기는 늘었다 줄었다 하기 때문에 큰 의미는 없음
 
 	// List==부모 ,ArrayList==자식

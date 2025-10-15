@@ -193,8 +193,9 @@ public class ToyFactory {
 	public void useAge() {
 		System.out.println("<연령별 사용 가능한 장난감>");
 		
-		List<ToyClass> list = new ArrayList<ToyClass>(toy);
+		List<ToyClass> list = new ArrayList<>(toy);
 //		list.sort(ToyClass.AGE_COMPARATOR);
+		//정렬
 		Collections.sort(list, new Comparator<ToyClass>() {
 			@Override
 			public int compare(ToyClass o1, ToyClass o2) {

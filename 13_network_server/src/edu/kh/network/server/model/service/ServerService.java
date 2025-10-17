@@ -76,7 +76,7 @@ public class ServerService {
 			
 			clientSocket = serverSocket.accept();
 			// -> 클라이언트의 요청이 오고, 수락이 될 때까지 무한대기
-			// -> 수학시 클라이언트이 socket 전달 받음
+			// -> 수락 시 클라이언트이 socket 전달 받음
 			
 			System.out.println("[클라이언트 접속 성공!]");
 			

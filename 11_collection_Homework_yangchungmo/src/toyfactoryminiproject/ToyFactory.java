@@ -16,7 +16,6 @@ public class ToyFactory {
 
 	private Map<Integer, String> ma = new HashMap<>();
 	private Set<ToyClass> toy = new HashSet<>();
-
 	Scanner sc = new Scanner(System.in);
 
 	public ToyFactory() {
@@ -192,27 +191,40 @@ public class ToyFactory {
 
 	public void useAge() {
 		System.out.println("<연령별 사용 가능한 장난감>");
+	
+		 // 1. 연령별 장난감을 그룹화할 Map 생성
+		
+		Map<Integer, List<ToyClass>> map = new HashMap<>();
+		
+		 // 2. 장난감 리스트 복사 및 정렬
 		
 		List<ToyClass> list = new ArrayList<>(toy);
-//		list.sort(ToyClass.AGE_COMPARATOR);
-		//정렬
-		Collections.sort(list, new Comparator<ToyClass>() {
-			@Override
-			public int compare(ToyClass o1, ToyClass o2) {
-				
-				return Integer.compare(o1.getAgeOfUse(), o2.getAgeOfUse());
-			}
-		});
+		list.sort((p1,p2) -> p1.getAgeOfUse()- p2.getAgeOfUse());
+		
+		 // 3. 정렬된 리스트를 Map 에 연령별로 나누기
+		//key 는 사용 연령 (getAgeOfUse()),
+		// value 는 그 나이에 사용 가능한 장난감 리스트
+
+		for(ToyClass t : list) {
+			int age = t.getAgeOfUse();
+			map.computeIfAbsent(age ,k -> new ArrayList<>()).add(t);
 			
-		int sum = 1;
-		//사용연령 같은값이 있는지
-		for(ToyClass age : list) {
-			System.out.println("[연령:" + age.getAgeOfUse() + "세]");
-			System.out.printf("%d.%s\n", sum++, age);
 		}
 		
-
-		System.out.println();
+		
+		 // 4. 출력
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 	}
 }

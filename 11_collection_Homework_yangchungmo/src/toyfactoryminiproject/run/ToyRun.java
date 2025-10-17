@@ -13,6 +13,7 @@ public class ToyRun {
 
 		ToyFactory toy1 = new ToyFactory();
 		toy1.display();
+		
 
 
 	}

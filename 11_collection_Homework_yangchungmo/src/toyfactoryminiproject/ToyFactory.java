@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -175,9 +176,7 @@ public class ToyFactory {
 
 	public void toyeUseAge() {
 		List<ToyClass> list = new ArrayList<ToyClass>(toy);
-		list.sort(ToyClass.Make_COMPARATOR);
-		
-//		Collections.sort(list);
+		list.sort((p1,p2) -> p1.getMake()- p2.getMake());
 		
 		int sum = 1;
 		System.out.println("<제조일 순으로 장난감 정렬>");
@@ -213,7 +212,16 @@ public class ToyFactory {
 		
 		
 		 // 4. 출력
-		
+		for(Entry<Integer, List<ToyClass>> entry :  map.entrySet()) {
+			List<ToyClass> toys = entry.getValue();
+			Integer age = entry.getKey();
+			System.out.println("[연령:"+age+"세]");
+			
+				for(int i = 0;i<toys.size();i++) {
+					ToyClass s = toys.get(i);
+					System.out.printf("%d.%s\n",i+1, s);
+				}
+		}
 		
 		
 		

@@ -18,14 +18,20 @@ public class FileService {
 	 *
 	 * - File 클래스 메서드
 	 *
-	 * boolean mkdir() : 디렉토리 생성 boolean mkdirs() : 경로상의 모든 디렉토리 생성 boolean
-	 * createNewFile() : 파일 생성 boolean delete() : 파일/디렉토리 삭제 String getName() : 파일
-	 * 이름 반환 String parent() : 파일이 저장된 디렉토리 반환 String getPath() : 전체 경로 반환 boolean
-	 * isFile() : 현재 File 객체가 관리하는게 파일이면 true boolean isDirectory() : 현재 File 객체가
-	 * 관리하는게 디렉토리 true boolean exists() : 파일/디렉토리가 존재하면 true, 아님 false long length()
-	 * : 파일 크기 반환 long lastModified() : 파일 마지막 수정일 (1970.01.01 09:00 부터 현재까지 지난 시간을
-	 * ms 단위로 반환) String[] list() : 디렉토리 내 파일 목록을 String[] 배열로 반환 File[] listFiles()
-	 * : 디렉토리 내 파일 목록을 File[] 배열로 반환
+	 * boolean mkdir() : 디렉토리 생성 boolean 
+	 * mkdirs() : 경로상의 모든 디렉토리 생성 boolean
+	 * createNewFile() : 파일 생성 
+	 * boolean delete() : 파일/디렉토리 삭제 
+	 * String getName() : 파일
+	 * 이름 반환 String parent() : 파일이 저장된 디렉토리 반환 
+	 * String getPath() : 전체 경로 반환 boolean
+	 * isFile() : 현재 File 객체가 관리하는게 파일이면 true 
+	 * boolean isDirectory() : 현재 File 객체가 관리하는게 디렉토리 true
+	 * boolean exists() : 파일/디렉토리가 존재하면 true, 아님 false 
+	 * long length(): 파일 크기 반환
+	 * long lastModified() : 파일 마지막 수정일 (1970.01.01 09:00 부터 현재까지 지난 시간을ms 단위로 반환)
+	 * String[] list() : 디렉토리 내 파일 목록을 String[] 배열로 반환
+	 *  File[] listFiles(): 디렉토리 내 파일 목록을 File[] 배열로 반환
 	 */
 
 	/*
@@ -82,19 +88,23 @@ public class FileService {
 		// 현재프로젝트 : 12_io
 		// L io_test
 		// L 20251014
-		File directory = new File("/io_test/20251014");// 연결만 함
+		File directory = new File("/io_test/20251023");// 연결만 함
 
 		// 폴더가 존재하지 않으면 생생
 		if (!directory.exists()) /* boolean 값 출력) */ {
 			// 폴더를 모두 생성
 			directory.mkdirs();
-
-			System.out.println(directory.getName());
+			
+			System.out.println("폴더 생성됨");
+			
+			System.out.println("폴더 이름: "+directory.getName());
 			// getName(): 마지막 경로만 반환
 
-			System.out.println(directory.getPath());
+			System.out.println("폴더 전체 경로: "+directory.getPath());
 			// getPath(): 전체 경로 반환
 
+		}else {
+			System.out.println("이미 폴더가 존재합니다");
 		}
 
 	}
@@ -125,6 +135,8 @@ public class FileService {
 				e.printStackTrace();
 
 			}
+		}else {
+			System.out.println("파일이 존재함");
 		}
 
 	}
@@ -135,10 +147,10 @@ public class FileService {
 	public void methode3() {
 
 		// File 객체 생성
-		File dirtory = new File("\\wokespace\\01_Java\\12_io");
+		File directory = new File("/wokespace/01_Java/12_io");
 
 		// 지정된 경로에 있는 모든 파일/디렉토리를 File[] 형태로 얻어오기
-		File[] files = dirtory.listFiles();
+		File[] files = directory.listFiles();
 
 		// 향상된 for 문
 		for (File f : files) {
@@ -151,7 +163,7 @@ public class FileService {
 
 			// java.text.SimpleDateFormat
 			// : 간단히 날짜 형식을 지정할 수 있는 객체
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd a h:mm");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd a h:mm");     
 			// ㄴ여기에 원하는 식으로 변환을 적어주면 됨
 			// 2025-10-14 오후 12:30
 
@@ -176,6 +188,10 @@ public class FileService {
 				// -> 폴더 크기를 구하는 메서드는 따로 존재하지 않음
 				// -> 구하고 싶으면 폴더안의 모든 파일을 순회하여 각 파일 크기 합산하여 사용
 
+				String result = String.format("%-20s %-20s %-5s %-10s", fileName, date, type, size);
+				System.out.println(result);
+			}else {
+				
 				String result = String.format("%-20s %-20s %-5s %-10s", fileName, date, type, size);
 				System.out.println(result);
 			}

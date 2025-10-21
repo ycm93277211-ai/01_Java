@@ -40,10 +40,10 @@ public class ByteRun {
  */
 		
 		ByteService service = new ByteService();
-//		service.fileByteOutput();
+		service.fileByteOutput();
 //		service.bufferedFileByteOutput();
 //		service.fileByteInput();
 //		service.bufferedFilebyteInput();
-		service. FileCopy();
+//		service. FileCopy();
 	}
 }

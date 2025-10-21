@@ -36,9 +36,9 @@ public class ByteService {
 			// FileOutputStrea: 파일을 찾을 수 없음
 			// -> 경로에 작성된 파일과 연결된 파일 출력 스트림 객체 생성
 			// -> 출력스트림에 연결된 파일이 존재하지 않으면 자동생성
-			// 단, 폴더는 자종생성해주지 않음
-			// 기존 파일이 존재하면 내요을 덮어쓰기함
-			fos = new FileOutputStream("/io_test/20251014/바이트기반_테스트.txt");
+			// 단, 폴더는 자동생성해주지 않음
+			// 기존 파일이 존재하면 내용을 덮어쓰기함
+			fos = new FileOutputStream("/io_test/20251014/바이트기반_테스트2.txt");
 			// String 불변성 문제를 해결한 객체
 			StringBuilder sb = new StringBuilder();
 			sb.append("Hello World!\n");

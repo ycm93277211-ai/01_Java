@@ -41,6 +41,7 @@ public class ByteRun {
 		
 		ByteService service = new ByteService();
 		service.fileByteOutput();
+		service.ou() ;
 //		service.bufferedFileByteOutput();
 //		service.fileByteInput();
 //		service.bufferedFilebyteInput();

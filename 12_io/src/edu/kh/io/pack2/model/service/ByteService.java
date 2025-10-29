@@ -31,14 +31,15 @@ public class ByteService {
 
 		// FileOuputStream 참조 변수 선언(OutputStream 상속받은 자식 클래스)
 		FileOutputStream fos = null;
-
+		BufferedOutputStream bos = null;
 		try {
 			// FileOutputStrea: 파일을 찾을 수 없음
 			// -> 경로에 작성된 파일과 연결된 파일 출력 스트림 객체 생성
 			// -> 출력스트림에 연결된 파일이 존재하지 않으면 자동생성
 			// 단, 폴더는 자동생성해주지 않음
 			// 기존 파일이 존재하면 내용을 덮어쓰기함
-			fos = new FileOutputStream("/io_test/20251014/바이트기반_테스트2.txt");
+			fos = new FileOutputStream("바이트기반_테스트100.txt");
+			bos = new BufferedOutputStream(fos);
 			// String 불변성 문제를 해결한 객체
 			StringBuilder sb = new StringBuilder();
 			sb.append("Hello World!\n");
@@ -51,7 +52,8 @@ public class ByteService {
 			// 출력 방법 1 : 한 글자씩 파일로 출력(char,2byte)
 			// 한글 깨짐
 			// StringBuilder -> String -> charAt()-> char
-			String content = sb.toString();
+			String str = "안녕하세요!~222~";
+			
 //			for (int i = 0; i < content.length(); i++) {
 //				char ch = content.charAt(i);
 //				fos.write(ch);
@@ -66,7 +68,8 @@ public class ByteService {
 			// System.nanoTime(); : 19070.01.01 오전 9:00:00 부터
 			// 현재 시간까지의 차이를 ns(nano second)로 반환
 
-			fos.write(content.getBytes());
+//			fos.write(content.getBytes());
+			bos.write(str.getBytes());
 			// byte[]로 만들어 반환하고
 			// 내부적으로 문자 인코딩을 적용하여 한글도 깨지지 않고 출려됨.
 
@@ -75,28 +78,28 @@ public class ByteService {
 
 			System.out.println("[수행시간] : " + (endTime - startTime) + "ns");
 
-			fos.flush(); // FileOutputStream에서 선택 사항
+//			bos.flush(); // FileOutputStream에서 선택 사항
 			// flush : 스트림 안에 남아있는 모든 데이터를 외부로 모두 밀어냄
 
 			System.out.println("출력 완료!");
 
 		} catch (IOException e) {
 			e.printStackTrace();
-
-		} finally {// try 예외 발생 여부 관계 없이 무조건 수행 함!
-			// 사용 완료한 스트림을 제거 하는 코드 작성
-			// -> 메모리 누수 방지
-
-			try {
-				// 스트림이 정상 생성된 경우
-				// 스트림을 닫는다
-				if (fos != null)
-					fos.close();
-				// close() 메서드도 IOExceptio을 발생시키기 때문에 try-catch문 이용해서 예외 처리 하기
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
+//		} finally {// try 예외 발생 여부 관계 없이 무조건 수행 함!
+//			// 사용 완료한 스트림을 제거 하는 코드 작성
+//			// -> 메모리 누수 방지
+//
+//			try {
+//				// 스트림이 정상 생성된 경우
+//				// 스트림을 닫는다
+//				if (fos != null)
+//					fos.close();
+//				// close() 메서드도 IOExceptio을 발생시키기 때문에 try-catch문 이용해서 예외 처리 하기
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
 
 	}
 
@@ -371,5 +374,22 @@ public class ByteService {
 
 		}
 
+	}
+	public void ou() {
+		FileOutputStream fos =null;
+		BufferedOutputStream bos = null;
+		
+		try {
+			fos = new FileOutputStream("test.txt");
+			bos = new BufferedOutputStream(fos);
+			
+			String str = "안녕하세요!~~22222222";
+			bos.write(str.getBytes());
+			System.out.println("출력완료");
+			bos.flush();
+		}catch(IOException e){
+			e.printStackTrace();
+			
+		}
 	}
 }
